@@ -1,11 +1,12 @@
-import { useState } from 'react';
 import './App.css';
-import NewOrderPage from '../NewOrderPage/NewOrderPage';
-import AuthPage from '../AuthPage/AuthPage';
-import OrderHistoryPage from '../OrderHistoryPage/OrderHistoryPage';
+import { useState } from 'react';
 import { Routes, Route } from 'react-router-dom'
-import NavBar from '../../components/NavBar/NavBar';
 import { getUser } from '../../utilities/users-service';
+import AuthPage from '../AuthPage/AuthPage';
+import NavBar from '../../components/NavBar/NavBar';
+
+import NewNotePage from '../NewNotePage/NewNotePage';
+import NoteHistoryPage from '../NoteHistoryPage/NoteHistoryPage';
 
 export default function App() {
   const [user, setUser] = useState(getUser())
@@ -17,8 +18,8 @@ export default function App() {
           <NavBar user={user} setUser={setUser} />
           <Routes>
             {/* Route components in here */}
-            <Route path="/orders/new" element={<NewOrderPage />} />
-            <Route path="/orders" element={<OrderHistoryPage />} />
+            <Route path="/notes/new" element={<NewNotePage />} />
+            <Route path="/notes" element={<NoteHistoryPage />} />
           </Routes>
         </>
         :
